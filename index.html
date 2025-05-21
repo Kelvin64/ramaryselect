@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RamarySelect - Wine & Spirits</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Navigation Bar -->
+  <nav class="flex items-center justify-between px-8 py-4 bg-white shadow">
+    <div class="text-3xl font-cursive">RamarySelect</div>
+    <ul class="flex space-x-6">
+      <li><a href="#" class="hover:text-yellow-700">Home</a></li>
+      <li><a href="#" class="hover:text-yellow-700">About</a></li>
+      <li><a href="#" class="hover:text-yellow-700">Contact</a></li>
+      <li><a href="#" class="hover:text-yellow-700">Blog</a></li>
+    </ul>
+    <div class="flex space-x-4">
+      <a href="#" class="text-gray-700">Sign In</a>
+      <a href="#" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Sign Up</a>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="relative h-[450px] flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center text-white max-w-xl">
+      <h1 class="text-5xl font-bold mb-4 font-cursive">RamarySelect</h1>
+      <p class="mb-6 text-lg">At RamarySelect, we connect international wine and beverage wholesalers with trusted regional distributors—concisely and efficiently.</p>
+      <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded text-lg font-semibold shadow">Order Now</a>
+    </div>
+  </section>
+  <!-- About/Intro Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
+      <div class="md:w-1/2">
+        <h2 class="text-3xl font-bold mb-4">Global Connections. Local Distribution</h2>
+        <p class="mb-6 text-gray-700">RamarySelect is your dedicated partner in the global wine and spirits market. We specialize in bridging the gap between wholesale producers and local distributors, making connections across diverse markets while ensuring quality, compliance, and smooth transactions. Whether you seek premium wines, craft spirits, or specialty beverages, we make global distribution simple and efficient.</p>
+        <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded font-semibold shadow">Learn More</a>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <img src="https://images.unsplash.com/photo-1514361892635-cebb9b6c7ca5?auto=format&fit=crop&w=500&q=80" alt="Wine bottles" class="rounded-lg shadow-lg w-full max-w-sm" />
+      </div>
+    </div>
+  </section>
+  <!-- Wine Carousel Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8">Explore a New World of Wine & Spirits</h2>
+      <div class="relative">
+        <!-- Left Button -->
+        <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow hover:bg-yellow-100 z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <!-- Carousel Track -->
+        <div id="carousel-track" class="flex overflow-x-auto no-scrollbar scroll-smooth gap-6 px-10">
+          <!-- Wine Card 1 -->
+          <div class="min-w-[220px] bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1514361892635-cebb9b6c7ca5?auto=format&fit=crop&w=200&q=80" alt="Wine 1" class="w-32 h-40 object-cover rounded mb-4" />
+            <h3 class="font-semibold text-lg mb-1">Arbora</h3>
+            <p class="text-sm text-gray-500 mb-2">Pinot Noir<br/>Gau Cask</p>
+            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded text-sm">Order Now</a>
+          </div>
+          <!-- Wine Card 2 -->
+          <div class="min-w-[220px] bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=200&q=80" alt="Wine 2" class="w-32 h-40 object-cover rounded mb-4" />
+            <h3 class="font-semibold text-lg mb-1">Alto Italia</h3>
+            <p class="text-sm text-gray-500 mb-2">Pinot Grigio<br/>Gau Cask</p>
+            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded text-sm">Order Now</a>
+          </div>
+          <!-- Wine Card 3 -->
+          <div class="min-w-[220px] bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1514361892635-cebb9b6c7ca5?auto=format&fit=crop&w=200&q=80" alt="Wine 3" class="w-32 h-40 object-cover rounded mb-4" />
+            <h3 class="font-semibold text-lg mb-1">Cavellor</h3>
+            <p class="text-sm text-gray-500 mb-2">Pinot Grigio<br/>Gau Cask</p>
+            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded text-sm">Order Now</a>
+          </div>
+          <!-- Wine Card 4 -->
+          <div class="min-w-[220px] bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=200&q=80" alt="Wine 4" class="w-32 h-40 object-cover rounded mb-4" />
+            <h3 class="font-semibold text-lg mb-1">Trentino</h3>
+            <p class="text-sm text-gray-500 mb-2">Pinot Grigio<br/>Gau Cask</p>
+            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded text-sm">Order Now</a>
+          </div>
+        </div>
+        <!-- Right Button -->
+        <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow hover:bg-yellow-100 z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Why Choose Us Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Why Choose RamarySelect?</h2>
+      <p class="text-center text-gray-600 mb-10">We don't just make your wine, we make your day!</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-gray-50 rounded-lg shadow p-6 flex flex-col items-center text-center">
+          <svg class="w-12 h-12 mb-4 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 1.343-3 3 0 2.5 3 5 3 5s3-2.5 3-5c0-1.657-1.343-3-3-3z"/><circle cx="12" cy="12" r="10"/></svg>
+          <h3 class="font-semibold text-lg mb-2">Exceptional Origins</h3>
+          <p class="text-gray-600 text-sm">From world-class vineyards, our wines reflect rich tradition and craft.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="bg-gray-50 rounded-lg shadow p-6 flex flex-col items-center text-center">
+          <svg class="w-12 h-12 mb-4 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2 2 4-4"/></svg>
+          <h3 class="font-semibold text-lg mb-2">High Quality</h3>
+          <p class="text-gray-600 text-sm">We provide the finest, reliable quality.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="bg-gray-50 rounded-lg shadow p-6 flex flex-col items-center text-center">
+          <svg class="w-12 h-12 mb-4 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 9h6v6H9z"/></svg>
+          <h3 class="font-semibold text-lg mb-2">Extraordinary</h3>
+          <p class="text-gray-600 text-sm">Wine like never before—unique taste experiences await.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="bg-gray-50 rounded-lg shadow p-6 flex flex-col items-center text-center">
+          <svg class="w-12 h-12 mb-4 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/></svg>
+          <h3 class="font-semibold text-lg mb-2">Affordable Price</h3>
+          <p class="text-gray-600 text-sm">Our wine selection offers great value for every budget.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Trusted Partners Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Our Trusted Partners</h2>
+      <p class="text-center text-gray-600 mb-10">At RamarySelect, we take pride in our strong relationships with some of the world's most renowned wine and spirit producers. Our partners are at the heart of our mission—bringing premium selections to clients through a seamless distribution network.</p>
+      <div class="flex flex-wrap justify-center items-center gap-8">
+        <img src="https://dummyimage.com/140x60/ddd/333&text=Blackstone" alt="Blackstone" class="h-16 object-contain grayscale hover:grayscale-0 transition" />
+        <img src="https://dummyimage.com/140x60/ddd/333&text=Kendall+Jackson" alt="Kendall Jackson" class="h-16 object-contain grayscale hover:grayscale-0 transition" />
+        <img src="https://dummyimage.com/140x60/ddd/333&text=Grand+Names" alt="Grand Names" class="h-16 object-contain grayscale hover:grayscale-0 transition" />
+        <img src="https://dummyimage.com/140x60/ddd/333&text=CocaCola" alt="CocaCola" class="h-16 object-contain grayscale hover:grayscale-0 transition" />
+        <img src="https://dummyimage.com/140x60/ddd/333&text=Partner+5" alt="Partner 5" class="h-16 object-contain grayscale hover:grayscale-0 transition" />
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials/Feedback Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Our perfection feedback</h2>
+      <p class="text-center text-gray-600 mb-10">Our customers' lives are amazing thanks to us</p>
+      <div class="max-w-2xl mx-auto bg-gray-50 rounded-lg shadow p-8 text-center">
+        <svg class="w-10 h-10 mx-auto mb-4 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17c0-2.21 1.79-4 4-4s4 1.79 4 4"/><circle cx="12" cy="7" r="4"/></svg>
+        <p class="text-lg italic text-gray-700 mb-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset....</p>
+        <div class="flex flex-col items-center">
+          <span class="font-semibold text-gray-900">Kelvin Sample</span>
+          <span class="text-sm text-gray-500 mb-2">Wine Taster</span>
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Kelvin Sample" class="w-14 h-14 rounded-full border-2 border-yellow-500 mt-2" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Newsletter Signup Section -->
+  <section class="relative py-16 bg-gray-900 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');">
+    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+    <div class="relative z-10 container mx-auto px-6 flex flex-col items-center">
+      <h2 class="text-3xl font-bold text-white text-center mb-4">Subscribe to get the Latest News</h2>
+      <p class="text-white text-center mb-8">Don't miss out on our latest news, updates, tips and special offers.</p>
+      <form class="w-full max-w-md flex flex-col sm:flex-row items-center gap-4">
+        <input type="email" required placeholder="Enter your mail" class="flex-1 px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded font-semibold shadow w-full sm:w-auto">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  <!-- Footer Section -->
+  <footer class="bg-yellow-50 border-t border-yellow-100 py-12">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between gap-10">
+      <!-- Left: Logo & Description -->
+      <div class="md:w-1/3 mb-8 md:mb-0">
+        <div class="text-2xl font-cursive text-yellow-700 mb-2">RamarySelect</div>
+        <p class="text-gray-600 text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. We connect international wine and beverage wholesalers with trusted regional distributors.</p>
+      </div>
+      <!-- Center: Quick Links -->
+      <div class="md:w-1/3 mb-8 md:mb-0 flex flex-col items-start">
+        <h4 class="font-semibold text-gray-800 mb-3">About</h4>
+        <ul class="space-y-2 text-gray-600 text-sm">
+          <li><a href="#" class="hover:text-yellow-700">Menu</a></li>
+          <li><a href="#" class="hover:text-yellow-700">About Us</a></li>
+          <li><a href="#" class="hover:text-yellow-700">News & Blogs</a></li>
+          <li><a href="#" class="hover:text-yellow-700">Contact Us</a></li>
+        </ul>
+      </div>
+      <!-- Right: Company Info & Contact -->
+      <div class="md:w-1/3 flex flex-col items-start">
+        <h4 class="font-semibold text-gray-800 mb-3">Company</h4>
+        <ul class="space-y-2 text-gray-600 text-sm mb-4">
+          <li><a href="#" class="hover:text-yellow-700">How we work</a></li>
+          <li><a href="#" class="hover:text-yellow-700">Pricing</a></li>
+          <li><a href="#" class="hover:text-yellow-700">FAQ</a></li>
+        </ul>
+        <h4 class="font-semibold text-gray-800 mb-2">Contact Us</h4>
+        <ul class="text-gray-600 text-sm mb-4">
+          <li>info@ramaryselect.com</li>
+          <li>www.ramaryselect.com</li>
+          <li>+233-333-333-333</li>
+        </ul>
+        <div class="flex space-x-4 mt-2">
+          <a href="#" aria-label="Twitter" class="text-gray-500 hover:text-yellow-600"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.384 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.117 2.823 5.254a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.058 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636A10.012 10.012 0 0 0 24 4.557z"/></svg></a>
+          <a href="#" aria-label="Facebook" class="text-gray-500 hover:text-yellow-600"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg></a>
+          <a href="#" aria-label="Instagram" class="text-gray-500 hover:text-yellow-600"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.775.131 4.602.425 3.635 1.392 2.668 2.359 2.374 3.532 2.315 4.809 2.256 6.089 2.243 6.498 2.243 12c0 5.502.013 5.911.072 7.191.059 1.277.353 2.45 1.32 3.417.967.967 2.14 1.261 3.417 1.32 1.28.059 1.689.072 7.191.072s5.911-.013 7.191-.072c1.277-.059 2.45-.353 3.417-1.32.967-.967 1.261-2.14 1.32-3.417.059-1.28.072-1.689.072-7.191s-.013-5.911-.072-7.191c-.059-1.277-.353-2.45-1.32-3.417C21.05.425 19.877.131 18.6.072 17.32.013 16.911 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Content will go here -->
+  <script src="carousel.js"></script>
+</body>
+</html> 
