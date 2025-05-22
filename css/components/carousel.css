@@ -1,0 +1,135 @@
+.carousel-section {
+    background-color: var(--background-light);
+}
+
+.carousel {
+    position: relative;
+    padding: 0 var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.carousel__track {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    scroll-smooth: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    padding: var(--spacing-md) 0;
+}
+
+.carousel__track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-text);
+    border: 1px solid var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    z-index: 2;
+}
+
+.carousel__button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.carousel__button svg {
+    width: 24px;
+    height: 24px;
+    color: var(--text-color);
+}
+
+.carousel__button:hover svg {
+    color: var(--light-text);
+}
+
+.carousel__button--prev {
+    left: 0;
+}
+
+.carousel__button--next {
+    right: 0;
+}
+
+.wine-card {
+    min-width: 220px;
+    background-color: var(--light-text);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition-normal);
+}
+
+.wine-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wine-card__image {
+    width: 128px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.wine-card__title {
+    font-family: var(--font-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-color);
+}
+
+.wine-card__subtitle {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.wine-card__button {
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .carousel__button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .carousel__button svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .wine-card {
+        min-width: 180px;
+    }
+
+    .wine-card__image {
+        width: 100px;
+        height: 140px;
+    }
+} 
