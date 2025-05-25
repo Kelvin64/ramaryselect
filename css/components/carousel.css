@@ -1,90 +1,93 @@
 .carousel-section {
-    background-color: var(--background-light);
+    background-color: #F9F6F2;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
 }
 
 .carousel {
     position: relative;
     padding: 0 var(--spacing-xl);
-    margin: var(--spacing-lg) 0;
+    margin: var(--spacing-lg) auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+    height: 360px;
 }
 
 .carousel__track {
     display: flex;
-    gap: var(--spacing-md);
-    overflow-x: auto;
-    scroll-smooth: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    padding: var(--spacing-md) 0;
+    gap: 1.5rem;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
 .carousel__track::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+}
+
+.carousel .wine-card {
+    min-width: 260px;
+    max-width: 260px;
+    height: 360px;
+    background-color: #fff;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 1.2rem 1rem 1.5rem 1rem;
+    position: relative;
+    border: none !important;
+}
+
+.carousel .wine-card__image {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
 }
 
 .carousel__button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: var(--light-text);
-    border: 1px solid var(--text-color);
+    background-color: var(--accent-color);
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: var(--transition-fast);
-    z-index: 2;
-}
-
-.carousel__button:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.10);
 }
 
 .carousel__button svg {
-    width: 24px;
-    height: 24px;
-    color: var(--text-color);
+    width: 28px;
+    height: 28px;
+    color: #fff;
 }
 
-.carousel__button:hover svg {
-    color: var(--light-text);
+.carousel__button:hover {
+    background-color: var(--primary-color);
 }
 
 .carousel__button--prev {
-    left: 0;
+    left: -60px;
 }
 
 .carousel__button--next {
-    right: 0;
-}
-
-.wine-card {
-    min-width: 220px;
-    background-color: var(--light-text);
-    border-radius: var(--border-radius-md);
-    padding: var(--spacing-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: var(--transition-normal);
-}
-
-.wine-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.wine-card__image {
-    width: 128px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
+    right: -60px;
 }
 
 .wine-card__title {
@@ -96,7 +99,7 @@
 }
 
 .wine-card__subtitle {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     color: var(--text-color);
     opacity: 0.7;
     margin-bottom: var(--spacing-sm);
@@ -105,31 +108,139 @@
 
 .wine-card__button {
     margin-top: auto;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: var(--border-radius-md);
+    border: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
 }
 
-@media (max-width: 768px) {
-    .carousel {
-        padding: 0 var(--spacing-lg);
-    }
+.wine-card__button:hover {
+    background: var(--primary-color);
+}
 
-    .carousel__button {
+@media (max-width: 900px) {
+    .carousel {
+        max-width: 100vw;
+        height: 320px;
+    }
+    .carousel .wine-card {
+        min-width: 200px;
+        max-width: 200px;
+        height: 260px;
+        padding: 1rem 0.5rem 1rem 0.5rem;
+    }
+    .carousel .wine-card__image {
+        height: 120px;
+    }
+    .carousel__button--prev {
+        left: -30px;
+    }
+    .carousel__button--next {
+        right: -30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel {
+        height: 220px;
+    }
+    .carousel .wine-card {
+        min-width: 140px;
+        max-width: 140px;
+        height: 180px;
+        padding: 0.5rem;
+    }
+    .carousel .wine-card__image {
+        height: 70px;
+    }
+    .carousel__track {
+        gap: 0.5rem;
+    }
+    .carousel__button--prev, .carousel__button--next {
+        left: 0;
+        right: 0;
         width: 32px;
         height: 32px;
     }
+}
 
-    .carousel__button svg {
-        width: 20px;
-        height: 20px;
-    }
+/* Collections Carousel Specific Styles */
+.collections-carousel {
+    position: relative;
+    padding: 0 var(--spacing-xl);
+    margin: var(--spacing-lg) auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    width: 80%;
+    height: 440px;
+}
 
-    .wine-card {
-        min-width: 180px;
-    }
+.collections-carousel .carousel__track {
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
 
-    .wine-card__image {
-        width: 100px;
-        height: 140px;
-    }
+.collections-carousel .wine-card {
+    min-width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border: none !important;
+}
+
+.collections-carousel .wine-card__image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
+
+.collections-carousel .wine-card__title {
+    font-family: var(--font-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-color);
+}
+
+.collections-carousel .wine-card__subtitle {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.collections-carousel .wine-card__button {
+    margin-top: auto;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: var(--border-radius-md);
+    border: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.collections-carousel .wine-card__button:hover {
+    background: var(--primary-color);
 } 

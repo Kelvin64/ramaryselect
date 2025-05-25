@@ -4,25 +4,25 @@ const wines = [
         name: 'Arbora',
         type: 'Pinot Noir',
         cask: 'Gau Cask',
-        image: 'https://images.unsplash.com/photo-1514361892635-cebb9b6c7ca5?auto=format&fit=crop&w=200&q=80'
+        image: 'images/sidepan.png'
     },
     {
         name: 'Alto Italia',
         type: 'Pinot Grigio',
         cask: 'Gau Cask',
-        image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=200&q=80'
+        image: 'images/sidepan.png'
     },
     {
         name: 'Cavellor',
         type: 'Pinot Grigio',
         cask: 'Gau Cask',
-        image: 'https://images.unsplash.com/photo-1514361892635-cebb9b6c7ca5?auto=format&fit=crop&w=200&q=80'
+        image: 'images/sidepan.png'
     },
     {
         name: 'Trentino',
         type: 'Pinot Grigio',
         cask: 'Gau Cask',
-        image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=200&q=80'
+        image: 'images/sidepan.png'
     }
 ];
 
@@ -64,11 +64,11 @@ const features = [
 
 // Partners data
 const partners = [
-    { name: 'Blackstone', logo: 'https://dummyimage.com/140x60/ddd/333&text=Blackstone' },
-    { name: 'Kendall Jackson', logo: 'https://dummyimage.com/140x60/ddd/333&text=Kendall+Jackson' },
-    { name: 'Grand Names', logo: 'https://dummyimage.com/140x60/ddd/333&text=Grand+Names' },
-    { name: 'CocaCola', logo: 'https://dummyimage.com/140x60/ddd/333&text=CocaCola' },
-    { name: 'Partner 5', logo: 'https://dummyimage.com/140x60/ddd/333&text=Partner+5' }
+    { name: 'Blackstone', logo: 'images/blackstone.png' },
+    { name: 'Kendall Jackson', logo: 'images/kendall-jackson.png' },
+    { name: 'Guiness', logo: 'images/guiness.png' },
+    { name: 'CocaCola', logo: 'images/coca.png' },
+    { name: 'Chevalier', logo: 'images/checalier.png' }
 ];
 
 // Initialize the page
