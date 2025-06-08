@@ -22,10 +22,10 @@ require_once __DIR__ . '/php/includes/auth.php';
                     <p>
                         RamarySelect is your dedicated partner in the global wine and spirits trade. We specialize in bridging the gap between wholesale producers and local distributors, enabling access to diverse markets while ensuring quality, compliance, and smooth logistics. Whether you're sourcing premium wines, craft spirits, or specialty beverages, we make global distribution simple and strategic.
                     </p>
-                    <a href="#" class="btn btn-primary">Our Blog</a>
+                    <a href="/ramaryselect/blog.php" class="btn btn-primary">Our Blog</a>
                 </div>
                 <div class="about-hero__image">
-                    <img src="/images/wine2bg.jpg" alt="Wine bottles" />
+                    <img src="/ramaryselect/images/wine2bg.jpg" alt="Wine bottles" />
                 </div>
             </div>
         </section>
@@ -105,7 +105,7 @@ require_once __DIR__ . '/php/includes/auth.php';
                         <a href="#" class="btn btn-secondary">Read more</a>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary about-updates__cta">Visit Our Blog</a>
+                
             </div>
         </section>
 

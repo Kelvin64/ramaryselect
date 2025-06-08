@@ -73,7 +73,7 @@ const partners = [
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-    initializeWineCarousel();
+    initializeWineCards();
     initializeFeatures();
     initializePartners();
     
@@ -100,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Initialize wine carousel
-function initializeWineCarousel() {
-    const carouselTrack = document.getElementById('carousel-track');
-    if (!carouselTrack) return;
+// Initialize wine cards
+function initializeWineCards() {
+    const wineCardsGrid = document.querySelector('.wine-cards__grid');
+    if (!wineCardsGrid) return;
 
     wines.forEach(wine => {
         const wineCard = document.createElement('div');
@@ -114,7 +114,7 @@ function initializeWineCarousel() {
             <p class="wine-card__subtitle">${wine.type}<br/>${wine.cask}</p>
             <a href="#" class="wine-card__button">Order Now</a>
         `;
-        carouselTrack.appendChild(wineCard);
+        wineCardsGrid.appendChild(wineCard);
     });
 }
 

@@ -1,0 +1,87 @@
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f6f2;
+    background-image: url('../../images/wine-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.auth-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.auth-card {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.auth-card__logo {
+    margin-bottom: 1.5rem;
+}
+
+.auth-card__logo img {
+    max-height: 50px;
+}
+
+.auth-card__title {
+    font-size: 2rem;
+    font-family: var(--font-primary);
+    margin-bottom: 0.5rem;
+}
+
+.auth-card__subtitle {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+}
+
+.auth-form .btn {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+}
+
+.auth-card__footer {
+    margin-top: 1.5rem;
+}
+
+.auth-card__footer a {
+    color: var(--color-primary);
+    font-weight: 600;
+} 

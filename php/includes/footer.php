@@ -21,22 +21,21 @@
             <div class="footer__column">
                 <h4 class="footer__title">Company</h4>
                 <ul class="footer__list">
-                    <li><a href="#">How we work</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="/ramaryselect/about.php">How we work</a></li>
+                    <li><a href="/ramaryselect/contact.php">Pricing</a></li>
                 </ul>
             </div>
             <div class="footer__column">
                 <h4 class="footer__title">Contact Us</h4>
                 <ul class="footer__list">
-                    <li>info@ramaryselect.com</li>
-                    <li>www.ramaryselect.com</li>
+                    <li>info@ramaryselect.net</li>
+                    <li>www.ramaryselect.net</li>
                     <li>+233-24-671-3326</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="footer__container" style="border-top: 1px solid #444; margin-top: 2rem; padding-top: 1rem; justify-content: space-between; align-items: center;">
+    <div class="footer__container footer__bottom-container">
         <div class="footer__copyright">
             &copy; <?php echo date('Y'); ?> RamarySelect. All Rights Reserved.
         </div>

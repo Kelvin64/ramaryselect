@@ -40,24 +40,12 @@ require_once __DIR__ . '/php/includes/auth.php';
             </div>
         </section>
 
-        <!-- Wine Carousel Section -->
-        <section class="section carousel-section">
+        <!-- Wine Cards Section -->
+        <section class="section wine-cards-section">
             <div class="container">
                 <h2 class="section-title">Explore a New World of Wine & Spirits</h2>
-                <div class="carousel">
-                    <button id="carousel-prev" class="carousel__button carousel__button--prev" aria-label="Previous slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 19l-7-7 7-7"/>
-                        </svg>
-                    </button>
-                    <div id="carousel-track" class="carousel__track">
-                        <!-- Wine cards will be dynamically added here -->
-                    </div>
-                    <button id="carousel-next" class="carousel__button carousel__button--next" aria-label="Next slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </button>
+                <div class="wine-cards__grid">
+                    <!-- Wine cards will be dynamically added here by js/main.js -->
                 </div>
             </div>
         </section>
@@ -117,7 +105,6 @@ require_once __DIR__ . '/php/includes/auth.php';
     <!-- Footer -->
     <?php include 'php/includes/footer.php'; ?>
 
-    <script src="script/carousel.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html> 
