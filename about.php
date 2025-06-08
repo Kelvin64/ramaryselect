@@ -43,7 +43,7 @@ require_once __DIR__ . '/php/includes/auth.php';
                     <p>
                         RamarySelect is your dedicated partner in the global wine and spirits trade. We specialize in bridging the gap between wholesale producers and local distributors, enabling access to diverse markets while ensuring quality, compliance, and smooth logistics. Whether you're sourcing premium wines, craft spirits, or specialty beverages, we make global distribution simple and strategic.
                     </p>
-                    <a href="#" class="btn btn-primary">Download Brochure</a>
+                    <a href="collections.php" class="btn btn-primary">Download Brochure</a>
                 </div>
             </div>
         </section>
@@ -90,22 +90,21 @@ require_once __DIR__ . '/php/includes/auth.php';
                         <img src="images/wine15.jpg" alt="Healthy ingredients found wine" />
                         <h3>Healthy ingredients found wine</h3>
                         <p>Here are some of the healthy ingredients found in wine.</p>
-                        <a href="#" class="btn btn-secondary">Read more</a>
+                        <a href="blog.php" class="btn btn-secondary">Read more</a>
                     </div>
                     <div class="update-card">
                         <img src="images/wine14.jpg" alt="Processes for wine making" />
                         <h3>Processes for wine making</h3>
                         <p>At RamarySelect, we offer innovative technologies and efficient processes to connect renowned wine and spirit producers.</p>
-                        <a href="#" class="btn btn-secondary">Read more</a>
+                        <a href="blog.php" class="btn btn-secondary">Read more</a>
                     </div>
                     <div class="update-card">
                         <img src="images/wine16.jpg" alt="Stakeholders in wine production" />
                         <h3>Stakeholders in wine production</h3>
                         <p>At RamarySelect, we create new relationships with the world's most renowned wine and spirit producers.</p>
-                        <a href="#" class="btn btn-secondary">Read more</a>
+                        <a href="blog.php" class="btn btn-secondary">Read more</a>
                     </div>
                 </div>
-                
             </div>
         </section>
 

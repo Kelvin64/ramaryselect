@@ -105,6 +105,5 @@ require_once __DIR__ . '/php/includes/auth.php';
     <!-- Footer -->
     <?php include 'php/includes/footer.php'; ?>
 
-    <script src="js/main.js"></script>
 </body>
 </html> 

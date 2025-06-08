@@ -141,39 +141,52 @@ if ($post_id) {
             </div>
         <?php else: ?>
             <!-- Blog Listing -->
-            <div class="search-container">
-                <form method="GET" action="">
-                    <input type="text" 
-                           name="search" 
-                           placeholder="Search for articles, news, and stories..." 
-                           value="<?php echo htmlspecialchars($search); ?>"
-                           class="search-input">
-                </form>
+            <div class="blog-hero">
+                <div class="container">
+                    <h1 class="blog-hero__title">Our Blog & News</h1>
+                    <p class="blog-hero__subtitle">Explore the latest articles, news, and stories from the world of wine.</p>
+                    <div class="blog-search">
+                        <form method="GET" action="">
+                            <input type="text" 
+                                   name="search" 
+                                   placeholder="Search for articles, news, and stories..." 
+                                   value="<?php echo htmlspecialchars($search); ?>"
+                                   class="blog-search__input">
+                            <button type="submit" class="blog-search__button">Search</button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
-            <div class="blog-grid">
-                <?php foreach ($posts as $post): ?>
-                    <div class="blog-card">
-                        <?php if ($post['image_path']): ?>
-                             <a href="?post=<?php echo $post['id']; ?>">
-                                <img src="<?php echo htmlspecialchars(get_image_path($post['image_path'])); ?>" 
-                                     alt="<?php echo htmlspecialchars($post['title']); ?>" 
-                                     class="blog-card__image">
-                             </a>
-                        <?php endif; ?>
-                        <div class="blog-card__content">
-                            <h2 class="blog-card__title">
-                                <a href="?post=<?php echo $post['id']; ?>"><?php echo htmlspecialchars($post['title']); ?></a>
-                            </h2>
-                            <div class="blog-card__meta">
-                                By <strong><?php echo htmlspecialchars($post['username']); ?></strong> on 
-                                <?php echo date('F j, Y', strtotime($post['created_at'])); ?>
+            <div class="blog-grid-container container">
+                <div class="blog-grid">
+                    <?php if (empty($posts)): ?>
+                        <p class="no-posts-message">No posts found for '<?php echo htmlspecialchars($search); ?>'.</p>
+                    <?php else: ?>
+                        <?php foreach ($posts as $post): ?>
+                            <div class="blog-card">
+                                <?php if ($post['image_path']): ?>
+                                     <a href="?post=<?php echo $post['id']; ?>">
+                                        <img src="<?php echo htmlspecialchars(get_image_path($post['image_path'])); ?>" 
+                                             alt="<?php echo htmlspecialchars($post['title']); ?>" 
+                                             class="blog-card__image">
+                                     </a>
+                                <?php endif; ?>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">
+                                        <a href="?post=<?php echo $post['id']; ?>"><?php echo htmlspecialchars($post['title']); ?></a>
+                                    </h2>
+                                    <div class="blog-card__meta">
+                                        By <strong><?php echo htmlspecialchars($post['username']); ?></strong> on 
+                                        <?php echo date('F j, Y', strtotime($post['created_at'])); ?>
+                                    </div>
+                                    <p class="blog-card__summary"><?php echo htmlspecialchars($post['summary']); ?></p>
+                                    <a href="?post=<?php echo $post['id']; ?>" class="btn btn-secondary">Read More</a>
+                                </div>
                             </div>
-                            <p class="blog-card__summary"><?php echo htmlspecialchars($post['summary']); ?></p>
-                            <a href="?post=<?php echo $post['id']; ?>" class="btn btn-secondary">Read More</a>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php endif; ?>
     </main>

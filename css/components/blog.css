@@ -166,4 +166,110 @@
 
 .related-posts .blog-card__title {
     font-size: 1.2rem;
+}
+
+/* Blog Hero Section */
+.blog-hero {
+    background-color: #f9f6f2;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.blog-hero__title {
+    font-size: 2.8rem;
+    font-family: var(--font-primary);
+    margin-bottom: 0.5rem;
+}
+
+.blog-hero__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.blog-search {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.blog-search form {
+    display: flex;
+    border-radius: 2rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.blog-search__input {
+    flex-grow: 1;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.blog-search__button {
+    border: none;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.blog-search__button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.blog-grid-container {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.no-posts-message {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .blog-hero {
+        padding: 2rem 0;
+    }
+
+    .blog-hero__title {
+        font-size: 2.2rem;
+    }
+
+    .blog-hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .blog-search form {
+        flex-direction: column;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+    }
+
+    .blog-search__input {
+        border: 1px solid #e5d6b0;
+        border-radius: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .blog-search__button {
+        border-radius: 2rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .single-post__title {
+        font-size: 2rem;
+    }
+
+    .related-posts {
+        position: static;
+        margin-top: var(--spacing-xl);
+    }
 } 

@@ -64,11 +64,7 @@ const features = [
 
 // Partners data
 const partners = [
-    { name: 'Blackstone', logo: 'images/blackstone.png' },
-    { name: 'Kendall Jackson', logo: 'images/kendall-jackson.png' },
-    { name: 'Guiness', logo: 'images/guiness.png' },
-    { name: 'CocaCola', logo: 'images/coca.png' },
-    { name: 'Chevalier', logo: 'images/checalier.png' }
+    { name: 'Melcom', logo: 'images/melcom.png' }
 ];
 
 // Initialize the page
@@ -112,7 +108,7 @@ function initializeWineCards() {
             <img src="${wine.image}" alt="${wine.name}" class="wine-card__image" />
             <h3 class="wine-card__title">${wine.name}</h3>
             <p class="wine-card__subtitle">${wine.type}<br/>${wine.cask}</p>
-            <a href="#" class="wine-card__button">Order Now</a>
+            <a href="contact.php" class="wine-card__button">Order Now</a>
         `;
         wineCardsGrid.appendChild(wineCard);
     });
