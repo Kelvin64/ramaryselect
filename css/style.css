@@ -1,20 +1,36 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Cormorant+Garamond:wght@400;500;700&family=EB+Garamond:wght@400;500;700&family=Lora:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap');
 
 /* Import utilities */
 @import 'utils/variables.css';
-@import 'utils/reset.css';
 
 /* Import components */
 @import 'components/header.css';
 @import 'components/footer.css';
 @import 'components/carousel.css';
+@import 'components/hero.css';
+@import 'components/about.css';
+@import 'components/auth.css';
+@import 'components/blog.css';
 
 /* Global Styles */
+body {
+    font-family: var(--font-secondary);
+    color: var(--color-text);
+    background-color: var(--color-background-alt);
+    line-height: 1.6;
+    margin: 0 !important;
+}
+
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 var(--container-padding);
+    padding: 0 var(--spacing-lg);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .section {
@@ -24,7 +40,7 @@
 .section-title {
     font-family: var(--font-primary);
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--color-text);
     margin-bottom: var(--spacing-lg);
     text-align: center;
 }
@@ -35,15 +51,26 @@
     border-radius: var(--border-radius-sm);
     font-weight: 500;
     transition: var(--transition-normal);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-primary);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    color: var(--light-text);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
 }
 
 .btn-secondary {
@@ -116,8 +143,8 @@
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 100vh;
-    height: 100vh;
+    min-height: 80vh;
+    height: 80vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -129,7 +156,7 @@
 .hero__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(34, 24, 10, 0.55);
+    background: rgba(24, 22, 19, 0.55);
     z-index: 1;
 }
 
@@ -147,7 +174,7 @@
 }
 
 .hero__title {
-    font-family: 'Playfair Display', cursive, var(--font-primary);
+    font-family: 'Cormorant Garamond', var(--font-primary);
     font-size: 4.2rem;
     font-weight: 700;
     margin-bottom: var(--spacing-lg);
@@ -568,7 +595,7 @@
 /* Newsletter Section */
 .newsletter {
     position: relative;
-    background-image: url('/images/wine2bg.jpg');
+    background-image: url('/ramaryselect/images/wine2bg.jpg');
     background-size: cover;
     background-position: center;
     padding: var(--spacing-xl) 0;
@@ -631,7 +658,7 @@
 }
 
 .newsletter__form .btn {
-    background: var(--accent-color);
+    background: var(--color-primary);
     color: #fff;
     border-radius: var(--border-radius-md);
     font-weight: 600;
@@ -643,7 +670,7 @@
 }
 
 .newsletter__form .btn:hover {
-    background: var(--primary-color);
+    background: var(--color-primary-dark);
 }
 
 @media (max-width: 600px) {
@@ -658,10 +685,10 @@
 
 /* Footer Section */
 .footer {
-    background: #F5E1C0;
-    border-top: 1px solid #f3e3b8;
+    background: var(--color-footer-background);
+    border-top: 1px solid #444;
     padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
-    color: var(--text-color);
+    color: var(--color-text-light);
 }
 
 .footer__container {
@@ -680,15 +707,15 @@
 }
 
 .footer__logo {
-    font-family: 'Playfair Display', cursive, var(--font-primary);
+    font-family: 'Cormorant Garamond', var(--font-primary);
     font-size: 2rem;
-    color: var(--primary-color);
+    color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
     font-weight: 700;
 }
 
 .footer__description {
-    color: var(--text-color);
+    color: var(--color-text-light);
     opacity: 0.85;
     font-size: 1rem;
     line-height: 1.6;
@@ -711,9 +738,10 @@
 .footer__title {
     font-family: var(--font-primary);
     font-size: 1.1rem;
-    color: var(--primary-color);
+    color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
     font-weight: 600;
+    opacity: 0.9;
 }
 
 .footer__list {
@@ -723,14 +751,14 @@
 }
 
 .footer__list a {
-    color: var(--text-color);
+    color: var(--color-text-light);
     opacity: 0.8;
     font-size: 1rem;
     transition: var(--transition-fast);
 }
 
 .footer__list a:hover {
-    color: var(--primary-color);
+    color: var(--color-text-light);
     opacity: 1;
 }
 
@@ -744,15 +772,25 @@
 }
 
 .footer__social a {
-    color: var(--primary-color);
+    color: var(--color-text-light);
     opacity: 0.8;
     font-size: 1.3rem;
     transition: var(--transition-fast);
 }
 
 .footer__social a:hover {
-    color: var(--accent-color);
+    color: var(--color-text-light);
     opacity: 1;
+}
+
+.footer__copyright,
+.footer__credits {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer__credits {
+    text-align: center;
 }
 
 @media (max-width: 992px) {
@@ -774,14 +812,6 @@
     --font-headline: 'Playfair Display', 'Cormorant Garamond', 'EB Garamond', serif;
     --font-subheadline: 'Lora', 'Merriweather', serif;
     --font-body: 'Merriweather', 'Lora', serif;
-}
-
-body {
-    font-family: var(--font-body);
-    color: var(--text-color);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3 {
@@ -1006,15 +1036,17 @@ p, li, ul, ol, blockquote {
   font-size: 1.1rem;
   border-radius: 1.5rem;
   margin-top: 1.5rem;
-  background: var(--primary-color);
+  background: var(--color-primary);
   color: #fff;
   font-weight: 700;
   letter-spacing: 0.02em;
   box-shadow: 0 2px 8px rgba(34,24,10,0.08);
   transition: background 0.2s;
+  border: none;
+  cursor: pointer;
 }
 .contact-btn:hover {
-  background: var(--accent-color);
+  background: var(--color-primary-dark);
   color: #fff;
 }
 

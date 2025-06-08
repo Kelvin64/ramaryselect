@@ -76,7 +76,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeWineCarousel();
     initializeFeatures();
     initializePartners();
-    initializeMobileMenu();
+    
+    const header = document.querySelector('.header');
+    const toggleButton = document.querySelector('.header__toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    if (toggleButton && mobileNav) {
+        toggleButton.addEventListener('click', () => {
+            header.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+    }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992) {
+            if (header) {
+                header.classList.remove('active');
+            }
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+            }
+        }
+    });
 });
 
 // Initialize wine carousel
@@ -91,7 +112,7 @@ function initializeWineCarousel() {
             <img src="${wine.image}" alt="${wine.name}" class="wine-card__image" />
             <h3 class="wine-card__title">${wine.name}</h3>
             <p class="wine-card__subtitle">${wine.type}<br/>${wine.cask}</p>
-            <a href="#" class="btn btn-primary wine-card__button">Order Now</a>
+            <a href="#" class="wine-card__button">Order Now</a>
         `;
         carouselTrack.appendChild(wineCard);
     });
@@ -126,21 +147,6 @@ function initializePartners() {
             <img src="${partner.logo}" alt="${partner.name}" />
         `;
         partnersGrid.appendChild(partnerLogo);
-    });
-}
-
-// Initialize mobile menu
-function initializeMobileMenu() {
-    const mobileMenuButton = document.querySelector('.header__mobile-menu');
-    const headerNav = document.querySelector('.header__nav');
-    
-    if (!mobileMenuButton || !headerNav) return;
-
-    mobileMenuButton.addEventListener('click', () => {
-        headerNav.classList.toggle('header__nav--active');
-        mobileMenuButton.setAttribute('aria-expanded', 
-            mobileMenuButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-        );
     });
 }
 
