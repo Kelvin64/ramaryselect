@@ -64,7 +64,7 @@ require_once __DIR__ . '/php/includes/auth.php';
         <!-- Trusted Partners Section -->
         <section class="section partners">
             <div class="container">
-                <h2 class="section-title">Our Trusted Partners</h2>
+                <h2 class="section-title">Our Trusted Partner</h2>
                 <p class="section-subtitle">At RamarySelect, we take pride in our strong relationships with some of the world's most renowned wine and spirit producers.</p>
                 <div class="partners__grid">
                     <!-- Partner logos will be added here -->
@@ -81,9 +81,9 @@ require_once __DIR__ . '/php/includes/auth.php';
                     <div class="testimonial-quote">
                         As someone who loves hosting dinner parties, having premium wines delivered right to my door is a game changer. The tasting notes and pairing suggestions make me look like a pro — my guests are always impressed!
                     </div>
-                    <div class="testimonial-author">Kelvin Wise</div>
+                    <div class="testimonial-author">Gilbert</div>
                     <div class="testimonial-role">Home Entertainer</div>
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Kelvin Sample" class="testimonial-photo" />
+                    <img src="/ramaryselect/images/gilbert.jpg" alt="Kelvin Sample" class="testimonial-photo" />
                 </div>
             </div>
         </section>

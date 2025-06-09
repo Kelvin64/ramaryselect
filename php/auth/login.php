@@ -86,5 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
+    <script src="/ramaryselect/js/main.js"></script>
 </body>
 </html> 
