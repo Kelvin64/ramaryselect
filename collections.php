@@ -6,6 +6,7 @@ require_once __DIR__ . '/php/includes/auth.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
   <title>Wine Collections - RamarySelect</title>
   <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
   <style>

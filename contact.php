@@ -6,6 +6,7 @@ require_once __DIR__ . '/php/includes/auth.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
     <title>Contact Us - RamarySelect</title>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />

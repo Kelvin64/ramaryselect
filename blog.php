@@ -81,6 +81,7 @@ if ($post_id) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
     <title><?php echo $post_id ? htmlspecialchars($current_post['title']) . ' - ' : ''; ?>Blog - RamarySelect</title>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 </head>
