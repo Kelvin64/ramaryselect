@@ -26,7 +26,7 @@
 }
 
 .hero__title {
-    font-family:'Cormorant Garamond';
+    font-family: var(--font-headline);
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: var(--spacing-md);

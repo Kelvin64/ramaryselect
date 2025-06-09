@@ -149,12 +149,38 @@ function initializePartners() {
 // Handle newsletter form submission
 const newsletterForm = document.querySelector('.newsletter__form');
 if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
+    newsletterForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = newsletterForm.querySelector('input[type="email"]').value;
-        // Here you would typically send this to your backend
-        console.log('Newsletter subscription:', email);
-        alert('Thank you for subscribing to our newsletter!');
-        newsletterForm.reset();
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+        const submitButton = newsletterForm.querySelector('button');
+        const originalButtonText = submitButton.textContent;
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Subscribing...';
+
+        try {
+            const response = await fetch('/ramaryselect/php/newsletter_subscribe.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'email=' + encodeURIComponent(email),
+            });
+
+            const result = await response.json();
+
+            alert(result.message || 'An error occurred.');
+            
+            if (result.success) {
+                newsletterForm.reset();
+            }
+        } catch (error) {
+            console.error('Subscription error:', error);
+            alert('An error occurred while subscribing. Please try again.');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
     });
 } 
