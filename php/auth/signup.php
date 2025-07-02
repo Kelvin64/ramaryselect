@@ -54,20 +54,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
-    <title>Sign Up - Wine Shop</title>
+    <link rel="icon" type="image/png" href="../../images/logo2.png">
+    <title>Sign Up - RamarySelect</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/auth.css">
+    <link rel="stylesheet" href="../../css/components/auth.css">
 </head>
-<body class="auth-no-scroll">
+<body>
     <?php include '../includes/header.php'; ?>
-    <div class="auth-bg">
-        <div class="auth-container">
-            <div class="auth-logo">
-                <img src="/ramaryselect/images/logo2.png" alt="RamarySelect Logo" />
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-card__logo">
+                <img src="../../images/logo2.png" alt="RamarySelect Logo" />
             </div>
             <form method="POST" class="auth-form">
-                <h2>Sign Up</h2>
+                <h2 class="auth-card__title">Sign Up</h2>
                 <?php if ($error): ?>
                     <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
@@ -97,12 +97,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <button type="submit" class="btn btn-primary">Sign Up</button>
                 
-                <p class="auth-links">
-                    Already have an account? <a href="login.php">Login</a>
-                </p>
+                <div class="auth-card__footer">
+                    <p>Already have an account? <a href="login.php">Login</a></p>
+                </div>
             </form>
         </div>
     </div>
-    <script src="/ramaryselect/js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html> 

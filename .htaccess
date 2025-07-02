@@ -1,4 +1,18 @@
+# Enable rewrite engine
 RewriteEngine On
+
+# Ensure HTTPS
+# Uncomment these lines if you have SSL certificate
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Handle /ramaryselect/ paths
+RewriteCond %{REQUEST_URI} ^/ramaryselect/(.*)$
+RewriteRule ^ramaryselect/(.*)$ /$1 [L]
+
+# Handle static assets with /ramaryselect/ prefix
+RewriteCond %{REQUEST_URI} ^/ramaryselect/(css|js|images|uploads)/(.*)$
+RewriteRule ^ramaryselect/(css|js|images|uploads)/(.*)$ /$1/$2 [L]
 
 # Remove .php extension
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -15,5 +29,41 @@ RewriteCond %{REQUEST_URI} !/php/newsletter_subscribe\.php
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# Set index.php as default
-DirectoryIndex index.php index.html 
+# Set default index
+DirectoryIndex index.php index.html
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # If you have SSL, uncomment this:
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Protect sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes
+
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/xml
+</IfModule>
+
+# Enable caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule> 

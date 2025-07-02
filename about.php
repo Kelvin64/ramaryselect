@@ -9,6 +9,114 @@ require_once __DIR__ . '/php/includes/auth.php';
     <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
     <title>About Us - RamarySelect</title>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
+    <style>
+        /* Enhanced Wine Categories Responsive Styles */
+        .about-categories__images {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 1rem !important;
+            margin-bottom: 2rem !important;
+            justify-content: flex-start !important;
+            flex-wrap: wrap !important;
+        }
+        
+        .about-categories__images img {
+            border-radius: 1rem !important;
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+            width: 160px !important;
+            height: 220px !important;
+            object-fit: cover !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            flex-shrink: 0 !important;
+            max-width: 100% !important;
+        }
+        
+        .about-categories__images img:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.18), 0 3px 8px rgba(0, 0, 0, 0.06) !important;
+        }
+        
+        /* Responsive breakpoints with !important */
+        @media (max-width: 992px) {
+            .about-categories__container {
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+            
+            .about-categories__images {
+                flex-direction: row !important;
+                justify-content: center !important;
+                flex-wrap: wrap !important;
+                gap: 1.2rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .about-categories__images img {
+                width: 150px !important;
+                height: 210px !important;
+                max-width: 100% !important;
+                flex-shrink: 0 !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-categories__images {
+                display: none !important;
+            }
+            
+            .about-categories__content {
+                text-align: center !important;
+                max-width: 100% !important;
+            }
+        }
+        
+        /* Ensure container has proper responsive behavior */
+        .about-categories {
+            background: #fff !important;
+            padding: 4rem 0 !important;
+        }
+        
+        .about-categories__container {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 4rem !important;
+        }
+        
+        .about-categories__content {
+            flex: 1 1 0 !important;
+            max-width: 540px !important;
+        }
+        
+        @media (max-width: 992px) {
+            .about-categories {
+                padding: 3rem 0 !important;
+            }
+            
+            .about-categories__container {
+                gap: 2rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-categories {
+                padding: 2.5rem 0 !important;
+            }
+            
+            .about-categories__container {
+                gap: 1.5rem !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-categories {
+                padding: 2rem 0 !important;
+            }
+            
+            .about-categories__container {
+                gap: 1rem !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -26,7 +134,7 @@ require_once __DIR__ . '/php/includes/auth.php';
                     <a href="/ramaryselect/blog.php" class="btn btn-primary">Our Blog</a>
                 </div>
                 <div class="about-hero__image">
-                    <img src="/ramaryselect/images/wine2bg.jpg" alt="Wine bottles" />
+                    <img src="/ramaryselect/images/sidepan.png" alt="Wine bottles" />
                 </div>
             </div>
         </section>

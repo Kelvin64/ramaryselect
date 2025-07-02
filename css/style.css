@@ -12,6 +12,10 @@
 @import 'components/about.css';
 @import 'components/auth.css';
 @import 'components/blog.css';
+@import 'components/wine-form.css';
+@import 'components/events.css';
+@import 'components/admin-header.css';
+@import 'components/collection-form.css';
 
 /* Global Styles */
 body {
@@ -565,7 +569,7 @@ a {
 /* Newsletter Section */
 .newsletter {
     position: relative;
-    background-image: url('/ramaryselect/images/wine2bg.jpg');
+    background-image: url('/ramaryselect/images/gp3.jpg');
     background-size: cover;
     background-position: center;
     padding: var(--spacing-xl) 0;
@@ -1067,13 +1071,19 @@ p, li, ul, ol, blockquote {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
   .about-hero__image img {
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 24px rgba(34,24,10,0.10);
-    max-width: 420px;
-    width: 100%;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 32px rgba(52, 152, 219, 0.15), 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 320px;
+    width: 90%;
     height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .about-hero__image img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(52, 152, 219, 0.2), 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
   .about-categories {
@@ -1089,13 +1099,21 @@ p, li, ul, ol, blockquote {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
   .about-categories__images img {
     border-radius: 1rem;
-    box-shadow: 0 2px 12px rgba(34,24,10,0.08);
-    width: 180px;
-    height: 240px;
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+    width: 160px;
+    height: 220px;
     object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  .about-categories__images img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(52, 152, 219, 0.18), 0 3px 8px rgba(0, 0, 0, 0.06);
   }
   .about-categories__content {
     flex: 1 1 0;
@@ -1104,7 +1122,7 @@ p, li, ul, ol, blockquote {
   
   .about-partners {
     position: relative;
-    background: url('/ramaryselect/images/wine10.jpg') center/cover no-repeat;
+    background: url('/ramaryselect/images/gp5.jpg') center/cover no-repeat;
     padding: var(--spacing-xl) 0;
     color: #fff;
   }
@@ -1142,12 +1160,17 @@ p, li, ul, ol, blockquote {
   .update-card {
     background: #fff;
     border-radius: 1rem;
-    box-shadow: 0 2px 12px rgba(34,24,10,0.08);
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
     padding: 1.5rem;
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .update-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(52, 152, 219, 0.12), 0 3px 10px rgba(0, 0, 0, 0.06);
   }
   .update-card img {
     width: 100%;
@@ -1199,12 +1222,17 @@ p, li, ul, ol, blockquote {
   .service-card {
     background: #fff;
     border-radius: 1rem;
-    box-shadow: 0 2px 12px rgba(34,24,10,0.08);
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
     padding: 2rem 1.5rem;
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(52, 152, 219, 0.12), 0 3px 10px rgba(0, 0, 0, 0.06);
   }
   .service-card img {
     width: 100%;
@@ -1229,10 +1257,24 @@ p, li, ul, ol, blockquote {
         text-align: center;
     }
 
+    .about-hero__image img {
+        max-width: 280px;
+        width: 80%;
+    }
+
     .about-categories__images {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-categories__images img {
+        width: 150px;
+        height: 210px;
+        max-width: 100%;
+        flex-shrink: 0;
     }
 
     .about-updates__grid,
@@ -1241,16 +1283,69 @@ p, li, ul, ol, blockquote {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .about-categories__images {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
     }
 
     .about-categories__images img {
-        width: 100%;
-        max-width: 280px;
-        height: auto;
+        width: 130px;
+        height: 190px;
+        max-width: 100%;
+        border-radius: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero__image img {
+        max-width: 250px;
+        width: 85%;
+    }
+
+    .about-categories__images {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-categories__images img {
+        width: 180px;
+        height: 240px;
+        max-width: 90%;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-categories__images {
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .about-categories__images img {
+        width: 160px;
+        height: 220px;
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-categories__images {
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-categories__images img {
+        width: 140px;
+        height: 200px;
+        max-width: 80%;
+        border-radius: 0.8rem;
     }
 }
 
@@ -1294,10 +1389,162 @@ p, li, ul, ol, blockquote {
     background-color: #fff;
 }
 
-.wine-cards__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.wine-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.wine-admin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.wine-admin-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .wine-section-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .wine-section-header .section-title {
+        margin-bottom: 0;
+    }
+}
+
+/* Wine Carousel Styles */
+.wine-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.wine-carousel__container {
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+}
+
+.wine-carousel__track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
     gap: var(--spacing-lg);
+}
+
+.wine-carousel__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.wine-carousel__prev,
+.wine-carousel__next {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.wine-carousel__prev:hover,
+.wine-carousel__next:hover {
+    background: var(--color-primary-dark);
+    transform: scale(1.05);
+}
+
+.wine-carousel__prev svg,
+.wine-carousel__next svg {
+    width: 20px;
+    height: 20px;
+}
+
+.wine-carousel__dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.wine-carousel__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: none;
+}
+
+.wine-carousel__dot.active {
+    background: var(--color-primary);
+    transform: scale(1.2);
+}
+
+.wine-carousel__dot:hover {
+    background: var(--color-primary);
+    opacity: 0.7;
+}
+
+/* Responsive Carousel Styles */
+@media (max-width: 1200px) {
+    .wine-card {
+        flex: 0 0 260px;
+        min-width: 260px;
+        width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wine-carousel__nav {
+        gap: var(--spacing-sm);
+    }
+    
+    .wine-carousel__prev,
+    .wine-carousel__next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .wine-carousel__prev svg,
+    .wine-carousel__next svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .wine-card {
+        flex: 0 0 240px;
+        min-width: 240px;
+        width: 240px;
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .wine-card {
+        flex: 0 0 220px;
+        min-width: 220px;
+        width: 220px;
+    }
+    
+    .wine-carousel__nav {
+        margin-top: var(--spacing-md);
+    }
 }
 
 .wine-card {
@@ -1308,6 +1555,9 @@ p, li, ul, ol, blockquote {
     transition: var(--transition-normal);
     text-align: center;
     padding: var(--spacing-lg);
+    flex: 0 0 280px;
+    min-width: 280px;
+    width: 280px;
 }
 
 .wine-card:hover {
@@ -1353,7 +1603,7 @@ p, li, ul, ol, blockquote {
 
 .contact-page__hero {
     position: relative;
-    background-image: url('../images/wine10.jpg');
+    background-image: url('../images/contact.jpg');
     background-size: cover;
     background-position: center;
     padding: 4rem 0;
@@ -1438,9 +1688,17 @@ p, li, ul, ol, blockquote {
 }
 
 .contact-map {
-    height: 300px;
+    height: 250px;
     border-radius: var(--border-radius-md);
     margin-top: var(--spacing-lg);
+    overflow: hidden;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: var(--border-radius-md);
 }
 
 .contact-page__form {

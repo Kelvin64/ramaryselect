@@ -1,0 +1,298 @@
+/* Wine Form Page Specific Styles */
+.wine-form-page {
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+/* Wine Form Styles */
+.wine-form-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 850px;
+    height: 85vh;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.wine-form-header {
+    text-align: center;
+    padding: 1.5rem 2rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    flex-shrink: 0;
+}
+
+.wine-form-header .auth-card__logo img {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.wine-form-header .auth-card__title {
+    color: #333;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.wine-form {
+    padding: 1.5rem 2rem;
+    flex: 1;
+    overflow: hidden;
+}
+
+.wine-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.wine-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.wine-form-fields .form-group {
+    margin-bottom: 0;
+}
+
+.wine-form-fields label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.wine-form-fields input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.wine-form-fields input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(56, 131, 151, 0.1);
+}
+
+/* Image Upload & Preview Styles */
+.wine-form-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.wine-form-preview .form-group {
+    margin-bottom: 0;
+}
+
+.wine-form-preview label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.wine-form-preview input[type="file"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.wine-form-preview input[type="file"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(56, 131, 151, 0.1);
+}
+
+.image-preview-container {
+    width: 100%;
+    max-width: 300px;
+}
+
+.image-preview-box {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-preview-box.has-image {
+    border-style: solid;
+    border-color: var(--color-primary);
+    background-color: #fff;
+}
+
+.preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #888;
+    padding: 1rem;
+}
+
+.preview-placeholder svg {
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    width: 48px;
+    height: 48px;
+}
+
+.preview-placeholder p {
+    margin: 0;
+    color: #666;
+}
+
+.preview-placeholder .preview-text {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+#imagePreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Form Actions */
+.wine-form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    flex-shrink: 0;
+}
+
+.wine-form-actions .btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.wine-form-actions .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.wine-form-actions .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.wine-form-actions .btn-secondary {
+    background-color: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.wine-form-actions .btn-secondary:hover {
+    background-color: #e9ecef;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .wine-form-card {
+        max-width: 95%;
+        max-height: 95vh;
+    }
+    
+    .wine-form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .image-preview-box {
+        height: 200px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .wine-form-page {
+        padding: 1rem;
+        height: 100vh;
+        overflow: auto;
+    }
+    
+    .wine-form-card {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        position: relative;
+    }
+    
+    .wine-form-header {
+        padding: 1rem 1.5rem 0.5rem;
+    }
+    
+    .wine-form {
+        padding: 1rem 1.5rem;
+        overflow: visible;
+    }
+    
+    .wine-form-actions {
+        flex-direction: column;
+    }
+    
+    .wine-form-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .wine-form-header .auth-card__title {
+        font-size: 1.4rem;
+    }
+    
+    .wine-form-fields {
+        gap: 0.8rem;
+    }
+    
+    .image-preview-box {
+        height: 180px;
+    }
+    
+    .wine-form-header .auth-card__logo img {
+        max-width: 60px;
+    }
+} 

@@ -9,7 +9,6 @@ require_once __DIR__ . '/php/includes/auth.php';
     <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
     <title>Contact Us - RamarySelect</title>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
     <!-- Header -->
@@ -54,7 +53,14 @@ require_once __DIR__ . '/php/includes/auth.php';
                         </div>
                     </div>
                     
-                    <div id="map" class="contact-map"></div>
+                    <div class="contact-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.3976103862547!2d-0.3158936241319496!3d5.655486132639454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf990cb2ec5a57%3A0xa5758d6187d55a50!2sRamary%20Select!5e0!3m2!1sen!2sgh!4v1751451491649!5m2!1sen!2sgh" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
 
                 </div>
 
@@ -85,19 +91,5 @@ require_once __DIR__ . '/php/includes/auth.php';
 
     <!-- Footer -->
     <?php include 'php/includes/footer.php'; ?>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var map = L.map('map').setView([5.6037, -0.1870], 13); // Centered on Accra
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            L.marker([5.6037, -0.1870]).addTo(map)
-                .bindPopup('RamarySelect, Accra, Ghana')
-                .openPopup();
-        });
-    </script>
 </body>
 </html> 

@@ -16,10 +16,10 @@ require_once __DIR__ . '/php/includes/auth.php';
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="background-image: url('images/wine2bg.jpg');">
+        <section class="hero" style="background-image: url('images/wine2bg.png');">
             <div class="hero__overlay"></div>
             <div class="hero__content">
-                <h1 class="hero__title">RamarySelect</h1>
+                <h1 class="hero__title"><span class="hero__title--primary">Ramary</span> <span class="hero__title--thin">Select</span></h1>
                 <p class="hero__subtitle">At RamarySelect, we connect international wine and beverage wholesalers with trusted regional distributors—concisely and efficiently.</p>
                 <a href="contact.php" class="btn btn-primary hero__cta">Order Now</a>
             </div>
@@ -44,9 +44,38 @@ require_once __DIR__ . '/php/includes/auth.php';
         <!-- Wine Cards Section -->
         <section class="section wine-cards-section">
             <div class="container">
-                <h2 class="section-title">Explore a New World of Wine & Spirits</h2>
-                <div class="wine-cards__grid">
-                    <!-- Wine cards will be dynamically added here by js/main.js -->
+                <div class="wine-section-header">
+                    <h2 class="section-title">Explore a New World of Wine & Spirits</h2>
+                    <?php if (isAdmin()): ?>
+                        <a href="/ramaryselect/php/admin/add_wine.php" class="btn btn-secondary wine-admin-btn">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                            </svg>
+                            Add New Wine
+                        </a>
+                    <?php endif; ?>
+                </div>
+                <div class="wine-carousel">
+                    <div class="wine-carousel__container">
+                        <div class="wine-carousel__track">
+                            <!-- Wine cards will be dynamically added here by js/main.js -->
+                        </div>
+                    </div>
+                    <div class="wine-carousel__nav">
+                        <button class="wine-carousel__prev" aria-label="Previous wines">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="wine-carousel__dots">
+                            <!-- Dots will be generated dynamically -->
+                        </div>
+                        <button class="wine-carousel__next" aria-label="Next wines">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

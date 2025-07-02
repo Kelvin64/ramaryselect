@@ -32,6 +32,15 @@
     margin-bottom: var(--spacing-md);
 }
 
+.hero__title--primary {
+    color: var(--color-primary) !important;
+}
+
+.hero__title--thin {
+    font-weight: 300;
+    color: var(--color-text-light);
+}
+
 .hero__subtitle {
     font-size: 1.25rem;
     margin-bottom: var(--spacing-lg);

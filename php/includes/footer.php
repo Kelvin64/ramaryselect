@@ -15,6 +15,7 @@
                     <li><a href="/ramaryselect/index.php">Menu</a></li>
                     <li><a href="/ramaryselect/about.php">About Us</a></li>
                     <li><a href="/ramaryselect/blog.php">News & Blogs</a></li>
+                    <li><a href="/ramaryselect/events.php">Events</a></li>
                     <li><a href="/ramaryselect/contact.php">Contact Us</a></li>
                 </ul>
             </div>
@@ -28,9 +29,10 @@
             <div class="footer__column">
                 <h4 class="footer__title">Contact Us</h4>
                 <ul class="footer__list">
-                    <li>info@ramaryselect.net</li>
+                    <li>admin@ramaryselect.net</li>
                     <li>www.ramaryselect.net</li>
-                    <li>+233-24-671-3326</li>
+                    <li>+233-24-417-3617</li>
+                    <li>+233-24-408-0931</li>
                 </ul>
             </div>
         </div>
