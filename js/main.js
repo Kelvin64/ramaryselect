@@ -1,5 +1,6 @@
-// Wine data - will be loaded from database
+// Wine data and Swiper instance
 let wines = [];
+let wineSwiper = null;
 
 // Features data
 const features = [
@@ -48,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeFeatures();
     initializePartners();
     
+    // Remove the EventSource code since the endpoint doesn't exist yet
+    
     const header = document.querySelector('.header');
     const toggleButton = document.querySelector('.header__toggle');
     const mobileNav = document.querySelector('.mobile-nav');
@@ -79,243 +82,132 @@ async function loadWines() {
         
         if (data.success) {
             wines = data.wines;
+            console.log(`Loaded ${wines.length} wines from database`);
+            wines.forEach((wine, index) => {
+                console.log(`Wine ${index + 1}: ${wine.name} - ${wine.type}`);
+            });
+            
+            // If Swiper exists, destroy it before reinitializing
+            if (wineSwiper) {
+                console.log('Destroying existing Swiper instance...');
+                wineSwiper.destroy();
+                wineSwiper = null;
+            }
+            
             initializeWineCards();
         } else {
             console.error('Failed to load wines:', data.error);
-            // Fallback to empty state or show error message
+            // Show error message to user
+            showNotification('Error loading wines. Please refresh the page.');
         }
     } catch (error) {
         console.error('Error loading wines:', error);
-        // Fallback to empty state or show error message
+        // Show error message to user
+        showNotification('Error loading wines. Please refresh the page.');
     }
 }
 
-// Carousel state
-let currentSlide = 0;
-let autoSlideInterval;
-let cardsPerView = 3;
-
-// Initialize wine cards carousel
+// Initialize wine cards carousel with Swiper
 function initializeWineCards() {
-    const wineCarouselTrack = document.querySelector('.wine-carousel__track');
-    if (!wineCarouselTrack) return;
+    const swiperWrapper = document.querySelector('.wine-swiper .swiper-wrapper');
+    if (!swiperWrapper) return;
 
     // Clear existing cards
-    wineCarouselTrack.innerHTML = '';
+    swiperWrapper.innerHTML = '';
 
     if (wines.length === 0) {
-        wineCarouselTrack.innerHTML = '<p style="text-align: center; color: #666; width: 100%;">No wines available at the moment.</p>';
+        swiperWrapper.innerHTML = '<div class="swiper-slide"><p style="text-align: center; color: #666;">No wines available at the moment.</p></div>';
         return;
     }
 
-    // Add wine cards to carousel
+    // Add wine cards to swiper
     wines.forEach(wine => {
-        const wineCard = document.createElement('div');
-        wineCard.className = 'wine-card';
-        wineCard.innerHTML = `
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+            <div class="wine-card">
             <img src="${wine.image}" alt="${wine.name}" class="wine-card__image" />
             <h3 class="wine-card__title">${wine.name}</h3>
-            <p class="wine-card__subtitle">${wine.type}<br/>${wine.cask || ''}</p>
+                <p class="wine-card__subtitle">${wine.type}<br/>${wine.cask || ''}</p>
             <a href="contact.php" class="wine-card__button">Order Now</a>
+            </div>
         `;
-        wineCarouselTrack.appendChild(wineCard);
+        swiperWrapper.appendChild(slide);
     });
 
-    // Initialize carousel functionality
-    initializeCarousel();
+    // Initialize Swiper
+    initializeSwiper();
 }
 
-// Initialize carousel functionality
-function initializeCarousel() {
-    if (wines.length === 0) return;
-
-    updateCardsPerView();
-    createDots();
-    setupNavigationEvents();
-    setupTouchEvents();
-    setupHoverEvents();
-    startAutoSlide();
-    
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        updateCardsPerView();
-        updateSlidePosition();
-        createDots();
-    });
-}
-
-// Update cards per view based on screen size
-function updateCardsPerView() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth <= 480) {
-        cardsPerView = 1;
-    } else if (screenWidth <= 768) {
-        cardsPerView = 2;
-    } else if (screenWidth <= 1200) {
-        cardsPerView = 3;
-    } else {
-        cardsPerView = 4;
-    }
-}
-
-// Create navigation dots
-function createDots() {
-    const dotsContainer = document.querySelector('.wine-carousel__dots');
-    if (!dotsContainer) return;
-
-    dotsContainer.innerHTML = '';
-    
-    const totalSlides = Math.max(1, Math.ceil(wines.length / cardsPerView));
-    
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('button');
-        dot.className = `wine-carousel__dot ${i === currentSlide ? 'active' : ''}`;
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    }
-}
-
-// Setup navigation button events
-function setupNavigationEvents() {
-    const prevBtn = document.querySelector('.wine-carousel__prev');
-    const nextBtn = document.querySelector('.wine-carousel__next');
-    
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            stopAutoSlide();
-            previousSlide();
-            startAutoSlide();
-        });
-    }
-    
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            stopAutoSlide();
-            nextSlide();
-            startAutoSlide();
-        });
-    }
-}
-
-// Go to specific slide
-function goToSlide(slideIndex) {
-    const totalSlides = Math.ceil(wines.length / cardsPerView);
-    currentSlide = Math.max(0, Math.min(slideIndex, totalSlides - 1));
-    updateSlidePosition();
-    updateDots();
-}
-
-// Go to next slide
-function nextSlide() {
-    const totalSlides = Math.ceil(wines.length / cardsPerView);
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlidePosition();
-    updateDots();
-}
-
-// Go to previous slide
-function previousSlide() {
-    const totalSlides = Math.ceil(wines.length / cardsPerView);
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlidePosition();
-    updateDots();
-}
-
-// Update slide position
-function updateSlidePosition() {
-    const track = document.querySelector('.wine-carousel__track');
-    if (!track) return;
-
-    // Get actual card width based on screen size
-    let cardWidth = 280;
-    const screenWidth = window.innerWidth;
-    
-    if (screenWidth <= 480) {
-        cardWidth = 220;
-    } else if (screenWidth <= 768) {
-        cardWidth = 240;
-    } else if (screenWidth <= 1200) {
-        cardWidth = 260;
-    }
-
-    const gap = 24; // Gap between cards (1.5rem)
-    const offset = currentSlide * cardsPerView * (cardWidth + gap);
-    
-    track.style.transform = `translateX(-${offset}px)`;
-}
-
-// Update active dot
-function updateDots() {
-    const dots = document.querySelectorAll('.wine-carousel__dot');
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
-}
-
-// Start automatic sliding
-function startAutoSlide() {
-    if (wines.length <= cardsPerView) return; // Don't auto-slide if all cards fit
-    
-    stopAutoSlide(); // Clear any existing interval
-    autoSlideInterval = setInterval(() => {
-        nextSlide();
-    }, 4000); // Change slide every 4 seconds
-}
-
-// Stop automatic sliding
-function stopAutoSlide() {
-    if (autoSlideInterval) {
-        clearInterval(autoSlideInterval);
-        autoSlideInterval = null;
-    }
-}
-
-// Setup touch/swipe events for mobile
-function setupTouchEvents() {
-    const carousel = document.querySelector('.wine-carousel');
-    if (!carousel) return;
-
-    let startX = 0;
-    let endX = 0;
-    let isDragging = false;
-
-    carousel.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-        stopAutoSlide();
-    }, { passive: true });
-
-    carousel.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        endX = e.touches[0].clientX;
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', () => {
-        if (!isDragging) return;
-        isDragging = false;
-
-        const threshold = 50;
-        const diff = startX - endX;
-
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                previousSlide();
+// Initialize Swiper carousel
+function initializeSwiper() {
+    wineSwiper = new Swiper('.wine-swiper', {
+        // Responsive breakpoints
+        breakpoints: {
+            // Mobile: 1 slide
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                centeredSlides: true,
+            },
+            // Tablet: 2 slides
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                centeredSlides: false,
+            },
+            // Desktop: 3 slides
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                centeredSlides: false,
+            },
+            // Large desktop: 4 slides
+            1200: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                centeredSlides: false,
             }
+        },
+        
+        // Navigation
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true, // Better for many slides
+        },
+        
+        // Loop
+        loop: wines.length > 4, // Only loop if more than 4 wines
+        
+        // Auto height
+        autoHeight: true,
+        
+        // Smooth transitions
+        effect: 'slide',
+        speed: 500,
+        
+        // Touch/swipe support
+        allowTouchMove: true,
+        grabCursor: true,
+        
+        // Accessibility
+        a11y: {
+            prevSlideMessage: 'Previous wine',
+            nextSlideMessage: 'Next wine',
+            firstSlideMessage: 'This is the first wine',
+            lastSlideMessage: 'This is the last wine',
+            paginationBulletMessage: 'Go to wine {{index}}'
         }
+    });
 
-        startAutoSlide();
-    }, { passive: true });
-}
-
-// Setup hover events to pause auto-slide
-function setupHoverEvents() {
-    const carousel = document.querySelector('.wine-carousel');
-    if (!carousel) return;
-
-    carousel.addEventListener('mouseenter', stopAutoSlide);
-    carousel.addEventListener('mouseleave', startAutoSlide);
+    console.log('Swiper initialized successfully with', wines.length, 'wines');
 }
 
 // Initialize features section
@@ -387,4 +279,20 @@ if (newsletterForm) {
             submitButton.textContent = originalButtonText;
         }
     });
+} 
+
+// Show notification to user
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 5000);
 } 

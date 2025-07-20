@@ -1,6 +1,5 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /* Import utilities */
 @import 'utils/variables.css';
@@ -178,7 +177,7 @@ a {
 }
 
 .hero__title {
-    font-family: 'Arial' !important;
+    font-family: var(--font-primary);
     font-size: 4.2rem;
     font-weight: 700;
     margin-bottom: var(--spacing-lg);
@@ -802,9 +801,9 @@ a {
 }
 
 :root {
-    --font-headline: 'Cormorant Garamond', 'Playfair Display', 'EB Garamond', serif;
-    --font-subheadline: 'Lora', 'Merriweather', serif;
-    --font-body: 'Merriweather', 'Lora', serif;
+    --font-headline: 'Montserrat', sans-serif;
+    --font-subheadline: 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
 }
 
 h1, h2, h3 {
@@ -1422,128 +1421,120 @@ p, li, ul, ol, blockquote {
     }
 }
 
-/* Wine Carousel Styles */
-.wine-carousel {
-    position: relative;
-    overflow: hidden;
-}
-
-.wine-carousel__container {
-    overflow: hidden;
-    border-radius: var(--border-radius-lg);
-}
-
-.wine-carousel__track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    gap: var(--spacing-lg);
-}
-
-.wine-carousel__nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.wine-carousel__prev,
-.wine-carousel__next {
+/* Notification System */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     background: var(--color-primary);
     color: white;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 9999;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Wine Carousel Styles - Swiper */
+.wine-swiper {
+    width: 100%;
+    padding: 20px 0;
+    overflow: visible;
+}
+
+.wine-swiper .swiper-slide {
     display: flex;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: var(--transition-normal);
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.wine-swiper .swiper-slide-active {
+    transform: scale(1.02);
+}
+
+.wine-swiper .swiper-button-next,
+.wine-swiper .swiper-button-prev {
+    color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.9);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.wine-carousel__prev:hover,
-.wine-carousel__next:hover {
-    background: var(--color-primary-dark);
-    transform: scale(1.05);
+.wine-swiper .swiper-button-next:hover,
+.wine-swiper .swiper-button-prev:hover {
+    background: var(--color-primary);
+    color: white;
 }
 
-.wine-carousel__prev svg,
-.wine-carousel__next svg {
-    width: 20px;
-    height: 20px;
+.wine-swiper .swiper-button-next::after,
+.wine-swiper .swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.wine-carousel__dots {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+.wine-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 20px;
 }
 
-.wine-carousel__dot {
+.wine-swiper .swiper-pagination-bullet {
+    background: #ddd;
+    opacity: 1;
     width: 12px;
     height: 12px;
-    border-radius: 50%;
-    background: #ddd;
-    cursor: pointer;
-    transition: var(--transition-fast);
-    border: none;
+    transition: all 0.3s ease;
 }
 
-.wine-carousel__dot.active {
+.wine-swiper .swiper-pagination-bullet-active {
     background: var(--color-primary);
     transform: scale(1.2);
 }
 
-.wine-carousel__dot:hover {
-    background: var(--color-primary);
-    opacity: 0.7;
-}
-
-/* Responsive Carousel Styles */
-@media (max-width: 1200px) {
-    .wine-card {
-        flex: 0 0 260px;
-        min-width: 260px;
-        width: 260px;
-    }
-}
-
+/* Responsive Swiper Styles */
 @media (max-width: 768px) {
-    .wine-carousel__nav {
-        gap: var(--spacing-sm);
+    .wine-swiper .swiper-button-next,
+    .wine-swiper .swiper-button-prev {
+        width: 35px;
+        height: 35px;
     }
     
-    .wine-carousel__prev,
-    .wine-carousel__next {
-        width: 40px;
-        height: 40px;
+    .wine-swiper .swiper-button-next::after,
+    .wine-swiper .swiper-button-prev::after {
+        font-size: 14px;
     }
     
-    .wine-carousel__prev svg,
-    .wine-carousel__next svg {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .wine-card {
-        flex: 0 0 240px;
-        min-width: 240px;
-        width: 240px;
-        padding: var(--spacing-md);
+    .notification {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .wine-card {
-        flex: 0 0 220px;
-        min-width: 220px;
-        width: 220px;
+    .wine-swiper .swiper-button-next,
+    .wine-swiper .swiper-button-prev {
+        width: 30px;
+        height: 30px;
     }
     
-    .wine-carousel__nav {
-        margin-top: var(--spacing-md);
+    .wine-swiper .swiper-button-next::after,
+    .wine-swiper .swiper-button-prev::after {
+        font-size: 12px;
     }
 }
 
@@ -1558,6 +1549,7 @@ p, li, ul, ol, blockquote {
     flex: 0 0 280px;
     min-width: 280px;
     width: 280px;
+    margin: 0 auto;
 }
 
 .wine-card:hover {
@@ -1716,6 +1708,7 @@ p, li, ul, ol, blockquote {
     display: block;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    font-family: var(--font-headline);
 }
 
 .contact-form-modern input,
@@ -1725,6 +1718,7 @@ p, li, ul, ol, blockquote {
     border: 1px solid #ccc;
     border-radius: var(--border-radius-sm);
     font-size: 1rem;
+    font-family: var(--font-body);
 }
 
 .contact-form-modern input:focus,

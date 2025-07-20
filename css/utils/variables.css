@@ -16,9 +16,12 @@
     /* Border Colors */
     --color-border: #E5E7EB;     /* Gray 200 */
 
-    /* Typography */
+    /* Typography - All Montserrat */
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Montserrat', sans-serif;
+    --font-headline: 'Montserrat', sans-serif;
+    --font-subheadline: 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
     
     /* Spacing */
     --spacing-xs: 0.25rem;

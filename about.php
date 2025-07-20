@@ -7,7 +7,7 @@ require_once __DIR__ . '/php/includes/auth.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
-    <title>About Us - RamarySelect</title>
+    <title>About Us - Ramary Select</title>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
     <style>
         /* Enhanced Wine Categories Responsive Styles */
@@ -127,9 +127,9 @@ require_once __DIR__ . '/php/includes/auth.php';
         <section class="about-hero">
             <div class="container about-hero__container">
                 <div class="about-hero__content">
-                    <h1 class="section-title">About RamarySelect</h1>
+                    <h1 class="section-title">About Ramary Select</h1>
                     <p>
-                        RamarySelect is your dedicated partner in the global wine and spirits trade. We specialize in bridging the gap between wholesale producers and local distributors, enabling access to diverse markets while ensuring quality, compliance, and smooth logistics. Whether you're sourcing premium wines, craft spirits, or specialty beverages, we make global distribution simple and strategic.
+                        Ramary Select is your dedicated partner in the global wine and spirits trade. We specialize in bridging the gap between wholesale producers and local distributors, enabling access to diverse markets while ensuring quality, compliance, and smooth logistics. Whether you're sourcing premium wines, craft spirits, or specialty beverages, we make global distribution simple and strategic.
                     </p>
                     <a href="/ramaryselect/blog.php" class="btn btn-primary">Our Blog</a>
                 </div>
@@ -150,7 +150,7 @@ require_once __DIR__ . '/php/includes/auth.php';
                 <div class="about-categories__content">
                     <h2 class="section-title">Wine Categories</h2>
                     <p>
-                        RamarySelect is your dedicated partner in the global wine and spirits trade. We specialize in bridging the gap between wholesale producers and local distributors, enabling access to diverse markets while ensuring quality, compliance, and smooth logistics. Whether you're sourcing premium wines, craft spirits, or specialty beverages, we make global distribution simple and strategic.
+                        Ramary Select is your dedicated partner in the global wine and spirits trade. We specialize in bridging the gap between wholesale producers and local distributors, enabling access to diverse markets while ensuring quality, compliance, and smooth logistics. Whether you're sourcing premium wines, craft spirits, or specialty beverages, we make global distribution simple and strategic.
                     </p>
                     <a href="collections.php" class="btn btn-primary">Download Brochure</a>
                 </div>
@@ -163,7 +163,7 @@ require_once __DIR__ . '/php/includes/auth.php';
             <div class="container about-partners__container">
                 <h2 class="section-title">Our Trusted Partners</h2>
                 <p class="section-subtitle">
-                    At RamarySelect, we take pride in our strong relationships with some of the world's most renowned wine and spirit producers. Our partners are at the heart of our mission—bringing premium selections to Ghana through a seamless distribution network.
+                    At Ramary Select, we take pride in our strong relationships with some of the world's most renowned wine and spirit producers. Our partners are at the heart of our mission—bringing premium selections to Ghana through a seamless distribution network.
                 </p>
                 <a href="contact.php" class="btn btn-primary">Join Us</a>
             </div>
@@ -204,13 +204,13 @@ require_once __DIR__ . '/php/includes/auth.php';
                     <div class="update-card">
                         <img src="images/wine14.jpg" alt="Processes for wine making" />
                         <h3>Processes for wine making</h3>
-                        <p>At RamarySelect, we offer innovative technologies and efficient processes to connect renowned wine and spirit producers.</p>
+                        <p>At Ramary Select, we offer innovative technologies and efficient processes to connect renowned wine and spirit producers.</p>
                         <a href="blog.php" class="btn btn-secondary">Read more</a>
                     </div>
                     <div class="update-card">
                         <img src="images/wine16.jpg" alt="Stakeholders in wine production" />
                         <h3>Stakeholders in wine production</h3>
-                        <p>At RamarySelect, we create new relationships with the world's most renowned wine and spirit producers.</p>
+                        <p>At Ramary Select, we create new relationships with the world's most renowned wine and spirit producers.</p>
                         <a href="blog.php" class="btn btn-secondary">Read more</a>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
         <div class="footer__brand">
             <div class="footer__logo">
                 <a href="/ramaryselect/index.php">
-                    <img src="/ramaryselect/images/logo2.png" alt="RamarySelect Logo">
+                    <img src="/ramaryselect/images/ramaryblackwhitelogo.png" alt="RamarySelect Logo">
                 </a>
             </div>
             <p class="footer__description">We connect international wine and beverage wholesalers with trusted regional distributors.</p>
@@ -39,7 +39,7 @@
     </div>
     <div class="footer__container footer__bottom-container">
         <div class="footer__copyright">
-            &copy; <?php echo date('Y'); ?> RamarySelect. All Rights Reserved.
+            &copy; <?php echo date('Y'); ?> Ramary Select. All Rights Reserved.
         </div>
         <div class="footer__credits">
             Made with ♥ by Techker

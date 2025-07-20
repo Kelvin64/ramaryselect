@@ -170,7 +170,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <script src="../../js/main.js"></script>
+    <!-- Footer -->
+    <?php include '../includes/footer.php'; ?>
     <script>
         function previewImage(input) {
             const previewBox = document.getElementById('imagePreviewBox');

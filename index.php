@@ -7,8 +7,10 @@ require_once __DIR__ . '/php/includes/auth.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
-    <title>RamarySelect - Wine & Spirits</title>
+    <title>Ramary Select - Wine & Spirits</title>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
     <!-- Header -->
@@ -20,7 +22,7 @@ require_once __DIR__ . '/php/includes/auth.php';
             <div class="hero__overlay"></div>
             <div class="hero__content">
                 <h1 class="hero__title"><span class="hero__title--primary">Ramary</span> <span class="hero__title--thin">Select</span></h1>
-                <p class="hero__subtitle">At RamarySelect, we connect international wine and beverage wholesalers with trusted regional distributors—concisely and efficiently.</p>
+                <p class="hero__subtitle">At Ramary Select, we connect international wine and beverage wholesalers with trusted regional distributors—concisely and efficiently.</p>
                 <a href="contact.php" class="btn btn-primary hero__cta">Order Now</a>
             </div>
         </section>
@@ -30,7 +32,7 @@ require_once __DIR__ . '/php/includes/auth.php';
             <div class="container about__container">
                 <div class="about__content">
                     <h2 class="section-title">Global Connections. Local Distribution</h2>
-                    <p class="about__text">RamarySelect is your dedicated partner in the global wine and spirits market. We specialize in bridging the gap between wholesale producers and local distributors, making connections across diverse markets while ensuring quality, compliance, and smooth transactions. Whether you seek premium wines, craft spirits, or specialty beverages, we make global distribution simple and efficient.</p>
+                    <p class="about__text">Ramary Select is your dedicated partner in the global wine and spirits market. We specialize in bridging the gap between wholesale producers and local distributors, making connections across diverse markets while ensuring quality, compliance, and smooth transactions. Whether you seek premium wines, craft spirits, or specialty beverages, we make global distribution simple and efficient.</p>
                     <a href="about.php" class="btn about__cta">Learn More</a>
                 </div>
                 <div class="about__image">
@@ -55,27 +57,16 @@ require_once __DIR__ . '/php/includes/auth.php';
                         </a>
                     <?php endif; ?>
                 </div>
-                <div class="wine-carousel">
-                    <div class="wine-carousel__container">
-                        <div class="wine-carousel__track">
-                            <!-- Wine cards will be dynamically added here by js/main.js -->
-                        </div>
+                <!-- Swiper -->
+                <div class="swiper wine-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Wine cards will be dynamically added here by js/main.js -->
                     </div>
-                    <div class="wine-carousel__nav">
-                        <button class="wine-carousel__prev" aria-label="Previous wines">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="15,18 9,12 15,6"></polyline>
-                            </svg>
-                        </button>
-                        <div class="wine-carousel__dots">
-                            <!-- Dots will be generated dynamically -->
-                        </div>
-                        <button class="wine-carousel__next" aria-label="Next wines">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9,18 15,12 9,6"></polyline>
-                            </svg>
-                        </button>
-                    </div>
+                    <!-- Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -83,7 +74,7 @@ require_once __DIR__ . '/php/includes/auth.php';
         <!-- Why Choose Us Section -->
         <section class="section features">
             <div class="container">
-                <h2 class="section-title">Why Choose RamarySelect?</h2>
+                <h2 class="section-title">Why Choose Ramary Select?</h2>
                 <p class="section-subtitle">We don't just make your wine, we make your day!</p>
                 <div class="features__grid">
                     <!-- Feature cards will be added here -->
@@ -95,7 +86,7 @@ require_once __DIR__ . '/php/includes/auth.php';
         <section class="section partners">
             <div class="container">
                 <h2 class="section-title">Our Trusted Partner</h2>
-                <p class="section-subtitle">At RamarySelect, we take pride in our strong relationships with some of the world's most renowned wine and spirit producers.</p>
+                <p class="section-subtitle">At Ramary Select, we take pride in our strong relationships with some of the world's most renowned wine and spirit producers.</p>
                 <div class="partners__grid">
                     <!-- Partner logos will be added here -->
                 </div>
@@ -134,6 +125,6 @@ require_once __DIR__ . '/php/includes/auth.php';
 
     <!-- Footer -->
     <?php include 'php/includes/footer.php'; ?>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html> 

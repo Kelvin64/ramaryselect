@@ -63,7 +63,7 @@ require_once __DIR__ . '/php/includes/auth.php';
     }
 
     .collection-title {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-primary);
       font-size: 1.35rem;
       color: var(--primary-color);
       margin-bottom: 0.7rem;
@@ -71,7 +71,14 @@ require_once __DIR__ . '/php/includes/auth.php';
       font-weight: 700;
     }
 
+    .collection-subtitle {
+      font-family: var(--font-primary);
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
     .collection-description {
+      font-family: var(--font-primary);
       color: #666;
       line-height: 1.5;
       margin-bottom: 0.8rem;
@@ -549,8 +556,8 @@ require_once __DIR__ . '/php/includes/auth.php';
               <span class="btn-text">View Digital Catalog</span>
               <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V12H3v7c0 1.1.9 2 2 2h7v-2z"/>
-              </svg>
-            </a>
+                </svg>
+              </a>
           </div>
           <div class="brochure-visual">
             <div class="brochure-mockup">
@@ -558,7 +565,7 @@ require_once __DIR__ . '/php/includes/auth.php';
               <div class="book-cover">
                 <div class="book-title">RamarySelect</div>
                 <div class="book-subtitle">Wine Portfolio</div>
-              </div>
+          </div>
             </div>
           </div>
         </div>
@@ -597,6 +604,7 @@ require_once __DIR__ . '/php/includes/auth.php';
           showError();
         }
       } catch (error) {
+        console.error('Error loading collections:', error);
         showError();
       }
     }

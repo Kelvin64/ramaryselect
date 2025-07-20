@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config/database.php';
 
 header('Content-Type: application/json');
+header('Cache-Control: no-cache, must-revalidate');
 
 try {
     // Fetch all active collections
@@ -40,10 +41,11 @@ try {
         'collections' => $processed_collections
     ]);
     
-} catch (Exception $e) {
-    http_response_code(500);
+} catch (PDOException $e) {
+    error_log("Get collections error: " . $e->getMessage());
     echo json_encode([
         'success' => false,
         'error' => 'Failed to fetch collections'
     ]);
-} 
+}
+?> 
