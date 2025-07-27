@@ -7,7 +7,7 @@ require_once __DIR__ . '/php/includes/auth.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
-    <title>Events - RamarySelect</title>
+    <title>Events - Ramary Select</title>
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
@@ -163,9 +163,9 @@ require_once __DIR__ . '/php/includes/auth.php';
                     <div class="testimonial-quote">
                         "RamarySelect transformed our annual corporate gala into an extraordinary wine journey. Their attention to detail and exquisite wine selections made it an unforgettable experience for all our clients and partners."
                     </div>
-                    <div class="testimonial-author">Sarah Chen</div>
-                    <div class="testimonial-role">Event Director, Goldstar Enterprises</div>
-                    <img src="/ramaryselect/images/gilbert.jpg" alt="Sarah Chen" class="testimonial-photo" />
+                    <div class="testimonial-author">Sarah Hammond</div>
+                    <div class="testimonial-role">Event Director</div>
+                    <img src="/ramaryselect/images/eventsimages.jpg" alt="Sarah Hammond" class="testimonial-photo" />
                 </div>
             </div>
         </section>
@@ -207,7 +207,7 @@ require_once __DIR__ . '/php/includes/auth.php';
                     </div>
                     
                     <div class="events-contact-form">
-                        <form class="contact-form-modern">
+                        <form class="contact-form-modern" id="eventsForm">
                             <div class="form-group">
                                 <label for="event-name">Your Name</label>
                                 <input type="text" id="event-name" name="name" placeholder="John Doe" required>
@@ -240,7 +240,8 @@ require_once __DIR__ . '/php/includes/auth.php';
                                 <label for="event-message">Event Details</label>
                                 <textarea id="event-message" name="message" rows="4" placeholder="Tell us about your event vision, budget, and any special requirements..." required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Request Quote</button>
+                            <button type="submit" class="btn btn-primary" id="eventsSubmitBtn">Request Quote</button>
+                            <div id="eventsFormMessage" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 0.5rem;"></div>
                         </form>
                     </div>
                 </div>
@@ -250,5 +251,55 @@ require_once __DIR__ . '/php/includes/auth.php';
 
     <!-- Footer -->
     <?php include 'php/includes/footer.php'; ?>
+
+    <script>
+        document.getElementById('eventsForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = document.getElementById('eventsSubmitBtn');
+            const messageDiv = document.getElementById('eventsFormMessage');
+            
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            messageDiv.style.display = 'none';
+            
+            try {
+                const formData = new FormData(form);
+                
+                const response = await fetch('/ramaryselect/php/events_form.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                // Show message
+                messageDiv.style.display = 'block';
+                messageDiv.style.backgroundColor = result.success ? '#d4edda' : '#f8d7da';
+                messageDiv.style.color = result.success ? '#155724' : '#721c24';
+                messageDiv.style.border = result.success ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+                messageDiv.textContent = result.message;
+                
+                if (result.success) {
+                    // Reset form on success
+                    form.reset();
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.style.display = 'block';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+                messageDiv.textContent = 'An error occurred. Please try again or contact us directly at events@ramaryselect.net';
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Quote';
+            }
+        });
+    </script>
 </body>
 </html> 

@@ -6,8 +6,9 @@ RewriteEngine On
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Skip rewrite for API endpoints
-RewriteRule ^ramaryselect/php/api/ - [L]
+# Handle API endpoints first - keep .php extension
+RewriteCond %{REQUEST_URI} ^/ramaryselect/php/api/([^/]+)$
+RewriteRule ^ramaryselect/php/api/([^/]+)$ /php/api/$1.php [L]
 
 # Handle /ramaryselect/ paths
 RewriteCond %{REQUEST_URI} ^/ramaryselect/(.*)$

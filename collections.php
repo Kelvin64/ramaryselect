@@ -7,7 +7,7 @@ require_once __DIR__ . '/php/includes/auth.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/x-icon" href="/ramaryselect/images/logo2.png">
-  <title>Wine Collections - RamarySelect</title>
+  <title>Wine Collections - Ramary Select</title>
   <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
   <style>
     .collections-grid {
@@ -177,6 +177,7 @@ require_once __DIR__ . '/php/includes/auth.php';
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
 
     .brochure-icon {
@@ -375,16 +376,19 @@ require_once __DIR__ . '/php/includes/auth.php';
       .collection-content {
         padding: 1.2rem;
         min-height: 140px;
+        text-align: center;
       }
       
       .collection-title {
         font-size: 1.2rem;
         margin-bottom: 0.6rem;
+        text-align: center;
       }
       
       .collection-description {
         font-size: 0.85rem;
         margin-bottom: 0.8rem;
+        text-align: center;
       }
       
       .download-btn {
@@ -407,6 +411,10 @@ require_once __DIR__ . '/php/includes/auth.php';
       .brochure-content {
         padding: 2rem 1.5rem;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
       
       .brochure-title {
@@ -434,6 +442,17 @@ require_once __DIR__ . '/php/includes/auth.php';
       .book-subtitle {
         font-size: 0.7rem;
       }
+
+      .brochure-btn {
+        padding: 0.9rem 1.8rem;  /* Slightly adjust padding */
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     @media (max-width: 480px) {
@@ -454,15 +473,18 @@ require_once __DIR__ . '/php/includes/auth.php';
       .collection-content {
         padding: 1.2rem;
         min-height: 150px;
+        text-align: center;
       }
       
       .collection-title {
         font-size: 1.3rem;
+        text-align: center;
       }
       
       .collection-description {
         font-size: 0.9rem;
         margin-bottom: 1rem;
+        text-align: center;
       }
       
       .download-btn {
@@ -484,6 +506,10 @@ require_once __DIR__ . '/php/includes/auth.php';
       
       .brochure-content {
         padding: 1.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
       
       .brochure-icon {
@@ -505,6 +531,12 @@ require_once __DIR__ . '/php/includes/auth.php';
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
         border-radius: 1.5rem;
+        min-width: 180px;  /* Slightly smaller minimum width */
+        max-width: 240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
       }
       
       .btn-text {
@@ -616,33 +648,29 @@ require_once __DIR__ . '/php/includes/auth.php';
       loading.style.display = 'none';
       grid.style.display = 'grid';
       
-             grid.innerHTML = collections.map(collection => `
-         <div class="collection-card">
-           <img src="${collection.image_path}" alt="${collection.name}" class="collection-image" onerror="this.src='/ramaryselect/images/wine1.jpg'">
-           <div class="collection-content">
-             <div class="collection-info">
-               <h2 class="collection-title">${collection.name}</h2>
-               <p class="collection-description">
-                 ${collection.description}
-               </p>
-             </div>
-             ${collection.has_brochure ? 
-               `<a href="${collection.pdf_path}" class="download-btn" target="_blank" download>
-                 Download Brochure
-                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                   <path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/>
-                 </svg>
-               </a>` :
-               `<span class="download-btn disabled">
-                 Brochure Coming Soon
-                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                   <path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/>
-                 </svg>
-               </span>`
-             }
-           </div>
-         </div>
-       `).join('');
+      grid.innerHTML = collections.map(collection => `<div class="collection-card">
+        <img src="${collection.image_path}" alt="${collection.name}" class="collection-image" onerror="this.src='/ramaryselect/images/wine1.jpg'">
+        <div class="collection-content">
+          <div class="collection-info">
+            <h2 class="collection-title">${collection.name}</h2>
+            <p class="collection-description">${collection.description}</p>
+          </div>
+          ${collection.has_brochure 
+            ? `<a href="${collection.pdf_path}" class="download-btn" target="_blank" download>
+                Download Brochure
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/>
+                </svg>
+              </a>`
+            : `<span class="download-btn disabled">
+                Brochure Coming Soon
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/>
+                </svg>
+              </span>`
+          }
+        </div>
+      </div>`).join('');
     }
 
     function showError() {
